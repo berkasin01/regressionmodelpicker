@@ -13,6 +13,15 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, random
 
 reg_obj = RegressionModelPicker()
 
-print(reg_obj.linear_model(X_train, X_test, y_train, y_test))
-print(reg_obj.polynomial_model(4, X_train, X_test, y_train, y_test))
-print(reg_obj.svr_model(X_train, X_test, y_train, y_test,True))
+reg_obj.best_reg_model(X_train, X_test, y_train, y_test)
+
+linear_model = reg_obj.linear_model(X_train, X_test, y_train, y_test)[0]
+
+poly_feature_scaler = reg_obj.polynomial_model(X_train, X_test, y_train, y_test,4)[0]
+poly_model = reg_obj.polynomial_model(X_train, X_test, y_train, y_test,4)[1]
+
+svr_model = reg_obj.svr_model(X_train, X_test, y_train, y_test, True)[0]
+
+dt_model = reg_obj.decision_tree_model(X_train, X_test, y_train, y_test)[0]
+
+rf_model = reg_obj.random_forest_model(X_train, X_test, y_train, y_test,10)[0]
