@@ -9,8 +9,6 @@ from sklearn.ensemble import RandomForestRegressor
 
 class RegressionModelPicker:
     def __init__(self):
-        self.X = None
-        self.y = None
         self.mult_linear_reg = None
         self.poly_reg = None
         self.poly_feat = None
